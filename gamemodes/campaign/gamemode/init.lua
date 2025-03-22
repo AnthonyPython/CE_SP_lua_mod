@@ -76,8 +76,8 @@ function GM:LevelInit( strMapName, strMapEntities, strOldLevel, strLandmarkName,
   gpGlobals.mapname = strMapName
 
   -- self:DebugEntityNames()
-  self:ResetChangeLevel()
-  self:RemoveFallTriggers()
+  --self:ResetChangeLevel()
+  --self:RemoveFallTriggers()
 
   -- Sometimes an ent will Remove() itself during its precache, so RemoveImmediate won't happen.
   -- This makes sure those ents get cleaned up.
