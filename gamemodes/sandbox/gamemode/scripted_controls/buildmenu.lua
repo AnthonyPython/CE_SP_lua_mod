@@ -16,9 +16,6 @@ local CBuildMenu = {
 	m_lasty = nil,
 }
 
--------------------------------------------------------------------------------
--- Purpose: Constructor
--------------------------------------------------------------------------------
 function CBuildMenu:Init(pViewPort)
 	self:SetProportional(true);
 	-- Make it screen sized
@@ -31,14 +28,20 @@ function CBuildMenu:Init(pViewPort)
 
 if false then
 	self.m_pMainMenu = CBuildSubMenu( self, "mainmenu" );
-	self.m_pMainMenu:LoadControlSettings( "Resource/UI/MainBuyMenu.res" );
+	self.m_pMainMenu:LoadControlSettings( "Resource/UI/mypanel.res" );
 	self.m_pMainMenu:SetVisible( false );
 end
+	self:LoadControlSettings( "Resource/UI/mainbuymenu.res" );
+	self:SetMinimizeButtonVisible(false)
+	self:SetMoveable(false)
+	self:SetSizeable(false)
+	self:SetCloseButtonVisible(false)
+	self:SetTitleBarVisible(false)
 	self:SetVisible( false )
 end
 
 function CBuildMenu:ApplySchemeSettings( pScheme )
-	self:SetBgColor( Color(0, 0, 0, 80) );
+	--self:SetBgColor( Color(0, 0, 0, 80) );
 end
 
 -------------------------------------------------------------------------------
@@ -54,7 +57,15 @@ function CBuildMenu:ShowPanel(bShow)
 
 		self:SetMouseInputEnabled( true );
 		self:SetVisible( true )
+	--	self.m_pMainMenu:SetVisible( true);
+	--	self.m_pMainMenu:Activate()
+		--self.m_pMainMenu:SetMouseInputEnabled( true );
+		--self.m_pMainMenu:SetKeyBoardInputEnabled( true );
+		--self.m_pMainMenu:RequestFocus();
+		self:Activate()
 		self:MakePopup();
+
+		--self:RequestFocus();
 
 		if ( self.m_lastx and self.m_lasty ) then
 			input.SetCursorPos( self.m_lastx, self.m_lasty )
@@ -63,6 +74,9 @@ function CBuildMenu:ShowPanel(bShow)
 		self.m_lastx, self.m_lasty = input.GetCursorPos()
 
 		self:SetVisible( false );
+		--self.m_pMainMenu:SetVisible( false );
+		--self.m_pMainMenu:SetMouseInputEnabled( false );
+		--self.m_pMainMenu:SetKeyBoardInputEnabled( false );
 		self:SetMouseInputEnabled( false );
 	end
 end
@@ -74,4 +88,5 @@ function CBuildMenu:OnClose()
 	self.BaseClass.OnClose( self );
 end
 
-vgui.register( CBuildMenu, "CBuildMenu", "Panel" )
+vgui.register( CBuildMenu, "CBuildMenu", "Frame" )
+

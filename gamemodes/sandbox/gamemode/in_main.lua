@@ -12,7 +12,7 @@ local function IN_BuildDown( pPlayer, pCmd, args )
 	end
 end
 
-concommand.Create( "+buildmenu", IN_BuildDown, nil )
+concommand.Create( "+buildmenu", IN_BuildDown, "" )
 
 local function IN_BuildUp( pPlayer, pCmd, args )
 	if ( gBuildMenuInterface ) then
@@ -20,4 +20,4 @@ local function IN_BuildUp( pPlayer, pCmd, args )
 	end
 end
 
-concommand.Create( "-buildmenu", IN_BuildUp, nil )
+concommand.Create( "-buildmenu", IN_BuildUp, "" )

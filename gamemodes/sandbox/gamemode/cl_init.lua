@@ -10,7 +10,9 @@ end
 
 include( "shared.lua" )
 include( "in_main.lua" )
-include( "scripted_controls/buildmenu.lua" )
+include( "scripted_controls\\buildsubmenu.lua" )
+
+include( "scripted_controls\\buildmenu.lua" )
 
 local bor = bit.bor
 local FONTFLAG_ANTIALIAS = _E.FONTFLAG.ANTIALIAS
@@ -18,7 +20,7 @@ local FONTFLAG_ADDITIVE = _E.FONTFLAG.ADDITIVE
 local FONTFLAG_CUSTOM = _E.FONTFLAG.CUSTOM
 
 function GM:CreateDefaultPanels()
-  gBuildMenuInterface = vgui.CBuildMenu( VGui_GetClientLuaRootPanel(), "build" )
+  gBuildMenuInterface = vgui.CBuildMenu( VGui_GetINGamePanel(), "build" )
 
   surface.AddCustomFontFile( "DIN-Light", "gamemodes/sandbox/content/resource/DINLi.ttf" )
 
